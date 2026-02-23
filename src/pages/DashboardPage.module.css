@@ -1,0 +1,118 @@
+/* DashboardPage.module.css */
+.dashboard {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  font-size: 1.8rem;
+}
+
+.summaryGrid {
+  display: grid;
+  /* Auto-fit will handle responsiveness automatically, but minmax ensures it doesn't get too small */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.card p {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.income p { color: var(--success-color); }
+.expense p { color: var(--danger-color); }
+.savings p { color: var(--primary-color); }
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.chartContainer {
+  height: 400px;
+  /* Allow container to shrink on mobile */
+  min-height: 300px; 
+}
+
+.suggestionsContainer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.suggestionsContainer li {
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Prediction Styles */
+.predictionContainer {
+  margin-top: 1rem; /* Changed from 2rem to fit better in grid flow if moved */
+  text-align: center;
+}
+.predictionAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-light); /* Make sure --primary-light is defined in root or use --primary-color */
+  color: var(--primary-color);
+}
+.predictionText {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+.predictionReasoning {
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* --- Mobile Breakpoint --- */
+@media (max-width: 992px) {
+  .mainContent {
+    grid-template-columns: 1fr; /* Stack Chart and Suggestions vertically */
+  }
+}
+
+@media (max-width: 576px) {
+  .summaryGrid {
+    grid-template-columns: 1fr; /* Force 1 column for summary cards on very small phones */
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card p {
+      font-size: 1.5rem;
+  }
+
+  .chartContainer {
+      height: 300px;
+  }
+}

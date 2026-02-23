@@ -1,0 +1,130 @@
+.pageContainer {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.subHeader {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.goalsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.goalCard {
+  display: flex;
+  flex-direction: column;
+  cursor: grab;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cardHeader h4 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0 5px;
+}
+
+.deleteBtn:hover {
+  color: var(--danger-color);
+}
+
+.goalAmount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.targetAmount {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.progressBarBackground {
+  height: 10px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.progressBarForeground {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+.goalMonthly {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: auto;
+}
+
+.form input {
+  margin-bottom: 1rem;
+}
+
+.datePickerWrapper {
+  margin-bottom: 1rem;
+}
+
+.datePickerWrapper label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.datePickerInput {
+  width: 100%;
+  padding: 12px;
+  background-color: #2c2c2c;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: var(--font-family);
+  cursor: pointer;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+  .header {
+    flex-direction: column; /* Stack Title and Add Button */
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .header button {
+      width: 100%;
+  }
+
+  .goalsGrid {
+    grid-template-columns: 1fr; /* Full width cards */
+  }
+}

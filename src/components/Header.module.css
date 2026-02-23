@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  /* Ensure it wraps nicely if space is tight */
+  flex-wrap: wrap; 
+  gap: 1rem;
+}
+
+.welcome {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.logoutButton {
+  background-color: var(--danger-color);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.logoutButton:hover {
+  background-color: #c82333;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+  .header {
+    padding: 1rem;
+    flex-direction: column; /* Stack vertically on very small screens if needed */
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .welcome {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    /* Truncate long emails on mobile */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

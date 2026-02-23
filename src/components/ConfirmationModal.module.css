@@ -1,0 +1,36 @@
+.container {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .title {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+  
+  .message {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .cancelBtn {
+    background-color: #4a4a4a;
+  }
+  .cancelBtn:hover {
+    background-color: #5a5a5a;
+  }
+  
+  .confirmBtn {
+    background-color: var(--danger-color);
+  }
+  .confirmBtn:hover {
+    background-color: #c82333;
+  }

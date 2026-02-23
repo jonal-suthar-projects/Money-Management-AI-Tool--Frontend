@@ -1,0 +1,95 @@
+.pageContainer {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.pageContainer h1 {
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.formContainer {
+  position: sticky;
+  top: 2rem;
+  z-index: 10;
+}
+
+.formContainer label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 1rem 0 0.25rem;
+}
+
+.budgetsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.budgetCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cardHeader h4 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.limit {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.dates {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: auto;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0 5px;
+}
+
+.deleteBtn:hover {
+  color: var(--danger-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+  .contentGrid {
+    grid-template-columns: 1fr; /* Stack form and list */
+  }
+
+  .formContainer {
+    position: static; /* Remove sticky on mobile to save vertical space */
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .budgetsList {
+    grid-template-columns: 1fr; /* Single column list on very small screens */
+  }
+}

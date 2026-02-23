@@ -1,0 +1,110 @@
+/* Layout.module.css */
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.pageContent {
+  padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--background-color);
+}
+
+/* --- Mobile Specifics --- */
+
+.mobileHeader {
+  display: none;
+  /* Add these lines to align items correctly */
+  justify-content: space-between; 
+  align-items: center;
+  
+  padding: 1rem;
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Group Menu + Logo together */
+.mobileHeaderLeft {
+  display: flex;
+  align-items: center;
+}
+
+.desktopHeader {
+  display: block;
+}
+
+.menuButton {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0.5rem;
+  margin-right: 1rem;
+  display: flex; /* Centers SVG */
+  align-items: center;
+}
+
+.mobileLogo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Style for the new Mobile Logout Button */
+.mobileLogoutBtn {
+  background: transparent;
+  border: none;
+  color: var(--danger-color); /* Make it red to indicate logout */
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.backdrop {
+  display: none;
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+  .mobileHeader {
+    display: flex; /* This shows the mobile header */
+  }
+
+  .desktopHeader {
+    display: none; /* This hides the standard Header component */
+  }
+
+  .pageContent {
+    padding: 1rem;
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .backdropOpen {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
