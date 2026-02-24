@@ -17,7 +17,11 @@ const AuthForm = ({ isSignup = false, onSubmit }) => {
         await onSubmit(email, password);
       }
     } catch (err) {
-      setError(err.response?.data?.detail || 'An error occurred. Please try again.');
+      setError(
+        err.response?.data?.detail?.[0]?.msg ||
+        err.response?.data?.detail ||
+        'Invalid email or password'
+      );
     }
   };
 

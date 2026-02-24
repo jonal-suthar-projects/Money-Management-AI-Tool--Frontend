@@ -36,15 +36,25 @@ export const AuthProvider = ({ children }) => {
     formData.append('username', email);
     formData.append('password', password);
 
-    const response = await api.post('/auth/login/token', formData);
+    const response = await api.post(
+      '/auth/login/token',
+      formData,
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+    );
+
     const { access_token } = response.data;
     localStorage.setItem('token', access_token);
     setToken(access_token);
     api.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
+
     const userResponse = await api.get('/auth/me');
     setUser(userResponse.data);
   };
-  
+
   const handleSignup = async (email, password, fullName) => {
     await api.post('/auth/signup', { email, password, full_name: fullName });
     // After signup, automatically log them in

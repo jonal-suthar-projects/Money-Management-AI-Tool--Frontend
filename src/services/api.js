@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+// CHANGE THIS: Use your Render URL instead of localhost
+const API_URL = 'https://money-management-ai-tool-backend.onrender.com/api'; 
+
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api', // Your backend API URL
+  baseURL: API_URL, 
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 // Interceptor to add the auth token to every request
